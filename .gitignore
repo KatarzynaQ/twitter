@@ -1,6 +1,6 @@
 files/employees-db.txt
 
-*/target/
+target/
 
 # Ignore everything inside .idea except of code styles
 .idea/
