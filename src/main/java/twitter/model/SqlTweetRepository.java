@@ -1,8 +1,12 @@
-package twitter;
+package twitter.model;
 
-import twitter.executor.DBCleaner;
-import twitter.executor.SqlScriptExecutor;
-import twitter.executor.SqlScriptExecutorImp;
+
+import twitter.db.DBCleaner;
+import twitter.db.executor.SqlScriptExecutor;
+import twitter.db.executor.SqlScriptExecutorImp;
+import twitter.model.Tweet;
+import twitter.model.TweetRepository;
+import twitter.model.TweetRepositoryException;
 
 import javax.sql.DataSource;
 import java.sql.*;

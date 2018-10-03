@@ -1,4 +1,4 @@
-package twitter;
+package twitter.db;
 
 import org.h2.jdbcx.JdbcDataSource;
 

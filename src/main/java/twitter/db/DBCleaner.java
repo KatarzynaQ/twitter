@@ -1,4 +1,4 @@
-package twitter.executor;
+package twitter.db;
 
 import javax.sql.DataSource;
 import java.sql.Connection;

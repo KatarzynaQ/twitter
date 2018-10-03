@@ -1,7 +1,5 @@
-package twitter;
+package twitter.model;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.stream.Stream;
 
 public class Dashboard {

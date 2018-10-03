@@ -1,6 +1,7 @@
-package twitter.executor;
+package twitter.db.executor;
 
 import org.apache.commons.io.IOUtils;
+
 
 import javax.sql.DataSource;
 import java.io.IOException;

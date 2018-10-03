@@ -3,6 +3,11 @@ package twitter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import twitter.db.DataSourceFactory;
+import twitter.model.Dashboard;
+import twitter.model.SqlTweetRepository;
+import twitter.model.Tweet;
+import twitter.model.TweetRepositoryException;
 
 import java.util.stream.Stream;
 

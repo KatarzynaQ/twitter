@@ -3,7 +3,9 @@ package twitter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import twitter.executor.DBCleaner;
+import twitter.model.Dashboard;
+import twitter.model.InMemoryTweetRepository;
+import twitter.model.Tweet;
 
 import java.util.stream.Stream;
 

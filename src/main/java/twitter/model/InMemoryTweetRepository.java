@@ -1,4 +1,8 @@
-package twitter;
+package twitter.model;
+
+import twitter.model.Tweet;
+import twitter.model.TweetRepository;
+import twitter.model.TweetRepositoryException;
 
 import java.util.ArrayList;
 import java.util.Collection;

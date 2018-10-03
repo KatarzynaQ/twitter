@@ -1,4 +1,4 @@
-package twitter;
+package twitter.model;
 
 public class TweetRepositoryException extends Exception {
     public TweetRepositoryException(String message) {

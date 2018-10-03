@@ -1,4 +1,4 @@
-package twitter.executor;
+package twitter.db.executor;
 
 public class SqlScriptExecutorException extends RuntimeException {
 	public SqlScriptExecutorException(String message) {

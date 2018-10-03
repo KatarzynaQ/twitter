@@ -1,4 +1,6 @@
-package twitter.executor;
+package twitter.db.executor;
+
+
 
 public interface SqlScriptExecutor {
 	/**

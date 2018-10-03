@@ -1,4 +1,4 @@
-package twitter.executor;
+package twitter.db.executor;
 
 import org.apache.commons.io.IOUtils;
 

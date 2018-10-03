@@ -1,8 +1,17 @@
-package twitter;
+package twitter.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import java.util.Objects;
 
+@NamedQuery(name="Tweet.allTweets",query="select t FROM Tweet t")
+@Entity
 public class Tweet {
+	@Id
+	@GeneratedValue
+	private int id;
 	private String message;
 	private String author;
 

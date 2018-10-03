@@ -1,4 +1,4 @@
-package twitter;
+package twitter.model;
 
 import java.util.stream.Stream;
 
