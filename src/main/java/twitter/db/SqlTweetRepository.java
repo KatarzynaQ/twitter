@@ -1,4 +1,4 @@
-package twitter.model;
+package twitter.db;
 
 
 import twitter.db.DBCleaner;
@@ -34,7 +34,7 @@ public class SqlTweetRepository implements TweetRepository {
             PreparedStatement insertStatement=connection.prepareStatement("INSERT into tweet(author, message) values(?,?)")){
 
 
-            insertStatement.setString(1,tweet.getAuthor());
+        //    insertStatement.setString(1,tweet.getAuthor());
             insertStatement.setString(2,tweet.getMessage());
           insertStatement.execute();
 
@@ -58,7 +58,7 @@ public class SqlTweetRepository implements TweetRepository {
             ResultSet resultSet = statement.executeQuery("select * from tweet ");
             Collection<Tweet>allTweets=new ArrayList<>();
             while (resultSet.next()){
-                allTweets.add(new Tweet(resultSet.getString("author"),resultSet.getString("message")));
+                allTweets.add(new Tweet(resultSet.getString("message")));
             }
 
             return allTweets.stream();

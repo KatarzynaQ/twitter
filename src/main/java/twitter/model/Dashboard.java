@@ -12,7 +12,7 @@ public class Dashboard {
     }
 
     public Tweet create(String msg, String author) throws TweetRepositoryException {
-        Tweet newTweet = new Tweet(msg, author);
+        Tweet newTweet = new Tweet(msg);
 
         repository.add(newTweet);
 

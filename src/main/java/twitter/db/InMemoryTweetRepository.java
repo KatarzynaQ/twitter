@@ -1,4 +1,4 @@
-package twitter.model;
+package twitter.db;
 
 import twitter.model.Tweet;
 import twitter.model.TweetRepository;
