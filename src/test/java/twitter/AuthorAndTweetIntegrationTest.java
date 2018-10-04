@@ -37,12 +37,11 @@ public class AuthorAndTweetIntegrationTest {
 
         Tweet tweet0 = new Tweet("im too tired to understand hibernate");
         Tweet tweet1 = new Tweet("but i'm still writing");
-        Collection<Tweet> tweets = new ArrayList<>();
-        tweets.add(tweet0);
-        tweets.add(tweet1);
 
         Author author = new Author();
-        author.saveTweets(tweets);
+        author.saveTweet(tweet0);
+        author.saveTweet(tweet1);
+
 
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();

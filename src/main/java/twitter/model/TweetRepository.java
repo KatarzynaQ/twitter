@@ -10,6 +10,6 @@ public interface TweetRepository {
      * @throws TweetRepositoryException if fails to add a tweet
 
      */
-    public void add(Tweet tweet)throws TweetRepositoryException;
+    public void add(Tweet tweet, int AuthorId)throws TweetRepositoryException;
     public Stream<Tweet>allTweets()throws TweetRepositoryException;
 }

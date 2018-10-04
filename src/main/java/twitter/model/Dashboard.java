@@ -7,14 +7,17 @@ public class Dashboard {
     private TweetRepository repository;
 
     public Dashboard(TweetRepository tweetRepository) {
-
         this.repository = tweetRepository;
     }
 
-    public Tweet create(String msg, String author) throws TweetRepositoryException {
+    public Tweet create(String msg, int authorId) throws TweetRepositoryException {
+        Author author=new Author();
+        author.setId(authorId);
         Tweet newTweet = new Tweet(msg);
+        author.saveTweet(newTweet);
 
-        repository.add(newTweet);
+
+        repository.add(newTweet, authorId);
 
         return newTweet;
     }

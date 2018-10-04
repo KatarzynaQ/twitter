@@ -1,5 +1,6 @@
 package twitter.db;
 
+import twitter.model.Author;
 import twitter.model.Tweet;
 import twitter.model.TweetRepository;
 import twitter.model.TweetRepositoryException;
@@ -16,10 +17,22 @@ public class JpaTweetRepository implements TweetRepository {
     }
 
     @Override
-    public void add(Tweet tweet) throws TweetRepositoryException {
+    public void add(Tweet tweet, int authorId) throws TweetRepositoryException {
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
-        entityManager.persist(tweet);
+        Author author=new Author();
+        try {
+            Author singleResult =
+                    entityManager.createNamedQuery("Author.findById", Author.class)
+                            .setParameter("id", authorId).getSingleResult();
+            author.saveTweet(tweet);
+            entityManager.merge(author);
+        }
+        catch(NoResultException e){
+            author.saveTweet(tweet);
+            entityManager.persist(author);
+
+        }
         transaction.commit();
     }
 

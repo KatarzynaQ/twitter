@@ -1,8 +1,11 @@
 package twitter.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
 
+
+@NamedQuery(name = "Author.findById", query = "SELECT a from Author a where a.id = :id")
 @Entity
 public class Author {
     @Id
@@ -12,9 +15,12 @@ public class Author {
     @JoinColumn(name = "t_ath")
     private Collection<Tweet> allWrittenTweets;
 
+    public Author() {
+        this.allWrittenTweets = new ArrayList<>();
+    }
 
-    public void saveTweets(Collection<Tweet>tweets){
-    this.allWrittenTweets=tweets;
+    public void saveTweet(Tweet tweet){
+        this.allWrittenTweets.add(tweet);
     }
 
     public int getId() {
