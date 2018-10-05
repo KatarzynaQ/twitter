@@ -3,6 +3,7 @@ package twitter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import twitter.model.Author;
 import twitter.model.Dashboard;
 import twitter.db.JpaTweetRepository;
 import twitter.model.Tweet;
@@ -34,37 +35,31 @@ public class DashboardJpaRepositoryTest {
         // given
         String msg = "content";
         int authorId =1;
-
         // when
         Tweet tweet = dashboard.create(msg,authorId);
 
         // then
-
         assertThat(tweet.getMessage()).isEqualTo(msg);
+
+        String msg1="next message";
+        Tweet tweet1=dashboard.create(msg1,authorId);
+        assertThat(tweet1.getMessage()).isEqualTo(msg1);
     }
 
-    @DisplayName("should load created tweet from the dashboard")
+    @DisplayName("should load two tweets created by author from the dashboard")
     @Test
     void db() throws Exception {
         // given
-        String msg = "content";
-        String author = "goobar";
-        Tweet expectedTweet1 = new Tweet("hello world!");
-        Tweet expectedTweet2 = new Tweet("hello myWorld!");
-        Tweet expectedTweet3 = new Tweet("hello");
-        dashboard.create("hello world!", anyAuthor());
-        dashboard.create("hello myWorld!", anyAuthor());
-        dashboard.create("hello", anyAuthor());
+        Author author=new Author();
+        author.setId(1);
+        Tweet t1= dashboard.create("t1",author.getId());
+        Tweet t2= dashboard.create("t2",author.getId());
 
         // when
-        Stream<Tweet> allTweets = dashboard.load();
+        Stream<Tweet> allTweets = dashboard.load(author);
 
         // then
-        assertThat(allTweets).containsExactlyInAnyOrder(expectedTweet1, expectedTweet2, expectedTweet3);
-    }
-
-    private int anyAuthor() {
-        return 3;
+        assertThat(allTweets).containsExactlyInAnyOrder(t1,t2);
     }
 }
 

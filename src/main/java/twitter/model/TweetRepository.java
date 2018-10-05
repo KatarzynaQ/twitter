@@ -11,5 +11,5 @@ public interface TweetRepository {
 
      */
     public void add(Tweet tweet, int AuthorId)throws TweetRepositoryException;
-    public Stream<Tweet>allTweets()throws TweetRepositoryException;
+    public Stream<Tweet>allTweets(Author author)throws TweetRepositoryException;
 }

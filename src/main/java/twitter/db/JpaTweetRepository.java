@@ -20,24 +20,29 @@ public class JpaTweetRepository implements TweetRepository {
     public void add(Tweet tweet, int authorId) throws TweetRepositoryException {
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
-        Author author=new Author();
         try {
-            Author singleResult =
+            Author author =
                     entityManager.createNamedQuery("Author.findById", Author.class)
                             .setParameter("id", authorId).getSingleResult();
             author.saveTweet(tweet);
-            entityManager.merge(author);
-        }
-        catch(NoResultException e){
-            author.saveTweet(tweet);
-            entityManager.persist(author);
+        } catch (NoResultException e) {
+            Author newAuthor = new Author();
+            newAuthor.saveTweet(tweet);
+            entityManager.persist(newAuthor);
 
         }
         transaction.commit();
     }
 
     @Override
-    public Stream<Tweet> allTweets() throws TweetRepositoryException {
-        return entityManager.createNamedQuery("Tweet.allTweets", Tweet.class).getResultStream();
+    public Stream<Tweet> allTweets(Author author) throws TweetRepositoryException {
+
+        Author foundAuthor = entityManager.find(Author.class, author.getId());
+        if (foundAuthor != null) {
+            return foundAuthor.getAllWrittenTweets().stream();
+        } else {
+            return Stream.empty();
+        }
+
     }
 }
