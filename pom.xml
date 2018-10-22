@@ -25,6 +25,10 @@
         <maven-compiler.version>3.7.0</maven-compiler.version>
         <mockito.version>2.18.0</mockito.version>
         <java.version>1.8</java.version>
+        <javax-servlet.version>4.0.1</javax-servlet.version>
+        <standard-lib.version>1.1.2</standard-lib.version>
+        <jstl-api.version>1.2.2</jstl-api.version>
+        <tomcat.version>9.0.11</tomcat.version>
     </properties>
 
     <build>
@@ -109,9 +113,55 @@
             <artifactId>hibernate-jpamodelgen</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
-
-
-
+        <dependency>
+            <groupId>taglibs</groupId>
+            <artifactId>standard</artifactId>
+            <version>${standard-lib.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/javax.servlet.jsp.jstl/javax.servlet.jsp.jstl-api -->
+        <dependency>
+            <groupId>javax.servlet.jsp.jstl</groupId>
+            <artifactId>javax.servlet.jsp.jstl-api</artifactId>
+            <version>${jstl-api.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${javax-servlet.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- embedded tomcat -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>${tomcat.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <version>${tomcat.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jasper</artifactId>
+            <version>${tomcat.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jasper-el</artifactId>
+            <version>${tomcat.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jsp-api</artifactId>
+            <version>${tomcat.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>${httpclient.version}</version>
+        </dependency>
     </dependencies>
 
 </project>
