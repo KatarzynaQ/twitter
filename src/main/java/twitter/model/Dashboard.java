@@ -10,9 +10,9 @@ public class Dashboard {
         this.repository = tweetRepository;
     }
 
-    public Tweet create(String msg, int authorId) throws TweetRepositoryException {
+    public Tweet create(String msg, String author) throws TweetRepositoryException {
         Tweet newTweet = new Tweet(msg);
-        repository.add(newTweet, authorId);
+        repository.add(newTweet, author);
         return newTweet;
     }
 
@@ -21,4 +21,7 @@ public class Dashboard {
 
     }
 
+    public Stream<Tweet> loadAll() throws TweetRepositoryException {
+        return repository.allTweets();
+    }
 }

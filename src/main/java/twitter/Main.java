@@ -1,6 +1,7 @@
 package twitter;
 
 import org.apache.catalina.startup.Tomcat;
+import twitter.web.EmbeddedTomcatFactory;
 
 public class Main {
     public static void main(String[] args) throws Exception {

@@ -27,6 +27,6 @@ public class AuthorTest {
 
         assertThat(author.getAllWrittenTweets()).containsExactlyInAnyOrder(tweet0);
         author.saveTweet(tweet1);
-        assertThat(author.getAllWrittenTweets()).containsExactlyInAnyOrder(tweet0,tweet1);
+        assertThat(author.getAllWrittenTweets()).containsExactlyInAnyOrder(tweet0, tweet1);
     }
 }

@@ -34,15 +34,15 @@ public class DashboardJpaRepositoryTest {
     void twitAuthor() throws Exception {
         // given
         String msg = "content";
-        int authorId =1;
+        String author = "author";
         // when
-        Tweet tweet = dashboard.create(msg,authorId);
+        Tweet tweet = dashboard.create(msg, author);
 
         // then
         assertThat(tweet.getMessage()).isEqualTo(msg);
 
-        String msg1="next message";
-        Tweet tweet1=dashboard.create(msg1,authorId);
+        String msg1 = "next message";
+        Tweet tweet1 = dashboard.create(msg1, author);
         assertThat(tweet1.getMessage()).isEqualTo(msg1);
     }
 
@@ -50,16 +50,16 @@ public class DashboardJpaRepositoryTest {
     @Test
     void db() throws Exception {
         // given
-        Author author=new Author();
-        author.setId(1);
-        Tweet t1= dashboard.create("t1",author.getId());
-        Tweet t2= dashboard.create("t2",author.getId());
+        Author author = new Author();
+        author.setName("goobar");
+        Tweet t1 = dashboard.create("t1", author.getName());
+        Tweet t2 = dashboard.create("t2", author.getName());
 
         // when
         Stream<Tweet> allTweets = dashboard.load(author);
 
         // then
-        assertThat(allTweets).containsExactlyInAnyOrder(t1,t2);
+        assertThat(allTweets).containsExactlyInAnyOrder(t1, t2);
     }
 }
 
